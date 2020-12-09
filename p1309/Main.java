@@ -1,45 +1,40 @@
+/**
+ * 1309 - Sudoku
+ * Time limit: 3.000 seconds
+ * 
+ * @author Sandra Sierra
+ */
 package p1309;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
-    static ArrayList<ArrayList<ArrayList<Integer>>> grid  = new ArrayList<ArrayList<ArrayList<Integer>>>();
+    static int[][] grid = new int[16][16];
+
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(new BufferedInputStream(System.in, 4 * 1024))) {
-            int row, col, number;
+            int i, j;
             String line;
 
             while (true) {
-                for (row = 0; row < 16; row++) {
-                    grid.add(new ArrayList<ArrayList<Integer>>());
+                for (i = 0; i < 16; i++) {
                     line = sc.nextLine();
-                    for (col = 0; col < 16; col++) {
-                        grid.get(row).add(new ArrayList<Integer>());
-                        if (line.charAt(col) != '-')
-                           grid.get(row).get(col).add(line.charAt(col) - 64);
+                    for (j = 0; j < 16; j++) {
+                        if (line.charAt(j) == '-')
+                            grid[i][j] = 0;
+                        else
+                            grid[i][j] = line.charAt(j) - 64;
                     }
                 }
 
-                for (row = 0; row < 16; row++) {
-                    for (col = 0; col < 16; col++) {
-                        if (grid.get(row).get(col).isEmpty()) {
-                            for (number= 1; number<17; number++) {
-                                if (checkRow(number, row) && checkColumn(number, col) && checkGrid(number, row, col)) {
-                                    grid.get(row).get(col).add(number);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                System.out.println(solve());
+                solve(0, 0);
 
                 // Output
-                for (row = 0; row < 16; row++) {
-                    for (col = 0; col < 16; col++)
-                        System.out.print((char) (grid.get(row).get(col).get(0) + 64));
+                for (i = 0; i<16; i++) {
+                    for (j = 0; j < 16; j++)
+                        System.out.print((char) (grid[i][j] + 64));
                     
                     System.out.println();
                 }
@@ -59,54 +54,48 @@ public class Main {
         }
     }
 
-    static boolean solve() {
-        int number, i, j;
-        while (!isFilled()) {
-            number = 17;
-            i = 0;
-            j = 0;
-            for (int row = 0; row < 16; row++) {
-                for (int col = 0; col < 16; col++) {
-                    if (grid.get(row).get(col).size() > 1 && grid.get(row).get(col).size() < number) {
-                        number = grid.get(row).get(col).size();
-                        i = row;
-                        j = col;                                
-                    }                        
-                }
-            }
-            
-            for (Integer x : grid.get(i).get(j)) {
-                ArrayList<ArrayList<ArrayList<Integer>>> gridCopy = new ArrayList<ArrayList<ArrayList<Integer>>>(grid);
-                ArrayList<Integer> temp = new ArrayList<Integer> (x);
-                grid.get(i).set(j, temp);
-                if (solve())
-                    return true;
-
-                grid = gridCopy;
-            }
-
-            return false;     
+    static boolean solve(int row, int col) {
+        if (row == 16) {
+            return true;
         }
 
-        return true;
-    }
+        if (grid[row][col] != 0) {
+            if (col + 1 > 15)
+                return solve(row + 1, 0);
+            else
+                return solve(row, col + 1);
 
-    static boolean isFilled() {
-        for (int i = 0; i < 16; i++) {
-            for (int j = 0; j < 16; j++) {
-                if (grid.get(i).get(j).size() != 1) {
-                    return false;
+        } else {
+            for (int number = 1; number < 17; number++) {
+                if (checkRow(number, row) && checkColumn(number, col) && checkGrid(number, row, col)) {
+                    grid[row][col] = number;
+
+                    if (col + 1 > 15) {
+                        if (solve(row + 1, 0))
+                            return true;
+                        else
+                            continue;
+
+                    } else {
+                        if (solve(row, col + 1))
+                            return true;
+                        else
+                            continue;
+                    }
                 }
             }
-        }
 
-        return true;
+            grid[row][col] = 0;
+            return false;
+        }
     }
 
     static boolean checkRow(int value, int row) {
-        for (int i = 0; i < 16; i++) {
-            if (!grid.get(row).get(i).isEmpty() && grid.get(row).get(i).get(0) == value)
-                return false;
+    int[] copy = grid[row].clone();
+    Arrays.sort(copy);
+        for (int i = 15; i >= 0; i--) {
+            if (copy[i] == 0) return true;
+            if (copy[i] == value) return false;
         }
 
         return true;
@@ -114,8 +103,9 @@ public class Main {
 
     static boolean checkColumn(int value, int col) {
         for (int i = 0; i < 16; i++) {
-            if (!grid.get(i).get(col).isEmpty() && grid.get(i).get(col).get(0) == value)
+            if (grid[i][col] == value) {
                 return false;
+            }
         }
 
         return true;
@@ -127,7 +117,7 @@ public class Main {
 
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                if (!grid.get(x + i).get(y + j).isEmpty() && grid.get(x + i).get(y + j).get(0)== value)
+                if (grid[x + i][y + j] == value)
                     return false;
             }
         }
