@@ -1,10 +1,4 @@
-/**
- * 146 - ID Codes
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-package p146;
+package p00146;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

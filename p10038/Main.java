@@ -1,10 +1,3 @@
-/**
- * 10038 - Jolly Jumpers
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-
 package p10038;
 
 import java.io.BufferedInputStream;

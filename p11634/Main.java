@@ -1,9 +1,3 @@
-/**
- * 11634 - Generate random numbers
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
 package p11634;
 
 import java.io.BufferedInputStream;

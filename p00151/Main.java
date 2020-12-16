@@ -1,11 +1,4 @@
-/**
- * 151 - Power Crisis
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-
-package p151;
+package p00151;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

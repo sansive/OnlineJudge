@@ -1,10 +1,3 @@
-/**
- * 10010 - Where's Waldorf?
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-
 package p10010;
 
 import java.io.BufferedInputStream;

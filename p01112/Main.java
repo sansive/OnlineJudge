@@ -1,10 +1,4 @@
-/**
- * 1112 - Mice and Maze
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-package p1112;
+package p01112;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

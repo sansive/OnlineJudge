@@ -1,9 +1,3 @@
-/**
- * 10670 - Work Reduction
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
 package p10670;
 
 import java.io.BufferedInputStream;

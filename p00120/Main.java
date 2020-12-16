@@ -1,10 +1,4 @@
-/**
- * 120 - Stacks of Flapjacks
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-package p120;
+package p00120;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

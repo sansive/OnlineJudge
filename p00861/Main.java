@@ -1,10 +1,4 @@
-/**
- * 861 - Little Bishops
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-package p861;
+package p00861;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

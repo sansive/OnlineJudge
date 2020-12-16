@@ -1,11 +1,4 @@
-/**
- * 843 - Crypt Kicker 
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-
-package p843;
+package p00843;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

@@ -1,9 +1,3 @@
-/**
- * 10099 - The Tourist Guide
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
 package p10099;
 
 import java.io.BufferedInputStream;

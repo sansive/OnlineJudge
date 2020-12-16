@@ -1,10 +1,4 @@
-/**
- * 410 - Station Balance
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-package p410;
+package p00410;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

@@ -1,9 +1,3 @@
-/**
- * 10911 - Forming Quiz Teams
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
 package p10911;
 
 import java.io.BufferedInputStream;

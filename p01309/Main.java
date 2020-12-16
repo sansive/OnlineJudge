@@ -1,10 +1,4 @@
-/**
- * 1309 - Sudoku
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-package p1309;
+package p01309;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

@@ -1,11 +1,4 @@
-/**
- * 100 - The 3n + 1 problem
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
-
-package p100;
+package p00100;
 
 import java.io.BufferedInputStream;
 import java.util.Scanner;

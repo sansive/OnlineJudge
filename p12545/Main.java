@@ -1,9 +1,3 @@
-/**
- * 12545 - Bits Equalizer
- * Time limit: 3.000 seconds
- * 
- * @author Sandra Sierra
- */
 package p12545;
 
 import java.io.BufferedInputStream;
